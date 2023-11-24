@@ -22,5 +22,5 @@ with st.spinner('Updating Report...'):
 
 
     if Planet:
-        Selected_Planet = Exoplanet_df.loc[Exoplanet_df['pl_name'] == Planet]
+        Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
