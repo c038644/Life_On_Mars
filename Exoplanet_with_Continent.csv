@@ -1,4 +1,4 @@
-pl_name,disc_year,disc_facility,pl_controv_flag,pl_orbper,pl_orbsmax,pl_rade,pl_bmasse,pl_orbeccen,pl_eqt,sy_dist,disc_country,disc_continent
+Planet Name,Discovery Year,Discovery Facility,Planet Flag,Orbital Period (days),pl_orbsmax,Planet Radius [Earth Radius],Planet Mass [Earth Mass],pl_orbeccen,Planet Temperature,System Distance,Discovery Country,Discovery Continent
 OGLE-2016-BLG-1227L b,2020,OGLE,0,,3.4,13.9,250,,,,Poland,Europe
 Kepler-276 c,2013,Kepler,0,31.884,0.1994,2.9,16.6,0,563,1144.86,United States,North America
 Kepler-829 b,2016,Kepler,0,6.88337562,0.0678,2.11,5.1,0,857,1073.76,United States,North America
