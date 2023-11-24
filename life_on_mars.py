@@ -31,7 +31,7 @@ g1, g2 = st.columns((1,2))
 
 fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
-        value = Planet_Selection.iat[3,0],
+        value = Selected_Planet.iat[0,3],
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Life Ranking", 'font': {'size': 24}},
         gauge = {
