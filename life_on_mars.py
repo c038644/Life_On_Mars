@@ -16,7 +16,7 @@ with st.spinner('Updating Report...'):
     Planet_Selection = Planet_Selection.drop(columns=['Unnamed: 0'])
     
     Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
-    Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
+    #Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 
     Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one exoplanet')
 
