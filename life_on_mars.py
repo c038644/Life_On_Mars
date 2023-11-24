@@ -13,7 +13,7 @@ t2.title("Life On Mars Dashboard")
 with st.spinner('Updating Report...'):
     
     Planet_Selection = pd.read_csv("./Planet_Names.csv")
-    Planet_Selection = Planet_Selection.drop(columns=[0])
+    Planet_Selection = Planet_Selection.drop(columns=['0'])
     
     Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
     #Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
