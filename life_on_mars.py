@@ -24,3 +24,21 @@ with st.spinner('Updating Report...'):
     if Planet:
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
+
+g1, g2 = st.columns((1,2))    
+
+fig2 = go.Figure(go.Indicator(
+        mode = "gauge+number+delta",
+        value = Planet_Selection.iat[0,4],
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': "Life Ranking", 'font': {'size': 24}},
+        gauge = {
+            'axis': {'range': [0, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
+            'bar': {'color': "black"},
+            'bgcolor': "white",
+            'borderwidth': 2,
+            'bordercolor': "gray",
+            'steps': [
+                {'range': [0, 0.33], 'color': 'red'},
+                {'range': [0.34, 0.66], 'color': 'orange'},
+                {'range': [0.67, 1], 'color': 'green'}]}))
