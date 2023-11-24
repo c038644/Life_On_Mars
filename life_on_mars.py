@@ -1,9 +1,6 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 
 st.set_page_config(page_title='Life On Mars Dashboard',  layout='wide', page_icon=':Dashboard:')
 
