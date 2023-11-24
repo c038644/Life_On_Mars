@@ -27,7 +27,7 @@ with st.spinner('Updating Report...'):
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
 
-g1, g2 = st.columns((1,2))    
+g1, g2 = st.columns((1,3))    
 
 fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
