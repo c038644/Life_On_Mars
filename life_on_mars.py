@@ -27,7 +27,7 @@ with st.spinner('Updating Report...'):
 
 g1, g2 = st.columns((1,2))    
 
-fig2 = go.Figure(go.Indicator(
+fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
         value = Planet_Selection.iat[0,4],
         domain = {'x': [0, 1], 'y': [0, 1]},
@@ -42,3 +42,5 @@ fig2 = go.Figure(go.Indicator(
                 {'range': [0, 0.33], 'color': 'red'},
                 {'range': [0.34, 0.66], 'color': 'orange'},
                 {'range': [0.67, 1], 'color': 'green'}]}))
+
+g1.plotly_chart(fig1, use_container_width=True)
