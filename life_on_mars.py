@@ -18,14 +18,14 @@ filtered_df = Exoplanet_df.copy()
 Input = pd.read_csv("./Input.csv")
 Input_Selector = st.sidebar.selectbox('Select Input Option', Input, help = 'Filter report to show only one feature')
 
-min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
-max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
-min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
-max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
-min_temp = Exoplanet_df['Planet Temperature'].min()
-max_temp = Exoplanet_df['Planet Temperature'].max()
-
 if Input_Selector == 'Slider':
+
+ min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
+ max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
+ min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
+ max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
+ min_temp = Exoplanet_df['Planet Temperature'].min()
+ max_temp = Exoplanet_df['Planet Temperature'].max()
  
  planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
