@@ -15,13 +15,6 @@ t1.title("Life On Mars Dashboard")
 Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 filtered_df = Exoplanet_df.copy()
 
-min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
-max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
-min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
-max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
-min_temp = Exoplanet_df['Planet Temperature'].min()
-max_temp = Exoplanet_df['Planet Temperature'].max()
-
 #Input = pd.read_csv("./Input.csv")
 #Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
 #default_input_option = 'Choose'
@@ -29,6 +22,13 @@ max_temp = Exoplanet_df['Planet Temperature'].max()
 Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option", 'Slider', 'Number Input'), placeholder = "Choose an option")
 
 if Input_Selector == 'Slider':
+
+ min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
+ max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
+ min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
+ max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
+ min_temp = Exoplanet_df['Planet Temperature'].min()
+ max_temp = Exoplanet_df['Planet Temperature'].max()
 
  planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
@@ -55,6 +55,14 @@ if Input_Selector == 'Slider':
  #   ]
  
 elif Input_Selector == 'Number Input':
+
+ min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
+ max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
+ min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
+ max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
+ min_temp = Exoplanet_df['Planet Temperature'].min()
+ max_temp = Exoplanet_df['Planet Temperature'].max()
+ 
  Input_min_radius = st.sidebar.number_input('Minimum Planet Radius:', min_radius)
  Input_max_radius = st.sidebar.number_input('Maximum Planet Radius:', max_radius)
  Input_min_mass = st.sidebar.number_input('Minimum Planet Mass:', min_mass)
@@ -80,7 +88,7 @@ elif Input_Selector == 'Number Input':
  #       (filtered_df['Planet Temperature'] < input_max_temp)
  #   ]
  
-st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
+
 
 #Planet = st.selectbox('Select Planet', flitered_df['Planet Name'], help = 'Filter report to show only one exoplanet')
 #Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
@@ -109,12 +117,17 @@ st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
 #g1.plotly_chart(fig1, use_container_width=True)
 
-g1 = st.columns((1,))
 
-Feature_List = pd.read_csv("./Feature_List.csv")
 
-Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
-fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
+#st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
-g1[0].plotly_chart(fig1, use_container_width=True)
+#g1 = st.columns((1,))
+
+#Feature_List = pd.read_csv("./Feature_List.csv")
+
+#Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
+
+#fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
+
+#g1[0].plotly_chart(fig1, use_container_width=True)
