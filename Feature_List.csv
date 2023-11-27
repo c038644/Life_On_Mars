@@ -1,13 +1,13 @@
 Planet_Name, 
 Discovery Year,
-'Discovery Facility',
-'Planet Flag',
-'Orbital Period (days)',
-'Planet Radius [Earth Radius]',
-'Planet Mass [Earth Mass]',
-'Planet Temperture',
-'System Distance',
-'Discovery Country',
-'Discovery Continent'
+Discovery Facility,
+Planet Flag,
+Orbital Period (days),
+Planet Radius [Earth Radius],
+Planet Mass [Earth Mass],
+Planet Temperture,
+System Distance,
+Discovery Country,
+Discovery Continent
   
   
