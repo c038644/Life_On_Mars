@@ -44,9 +44,12 @@ flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < 
 Planet = st.selectbox('Select Planet', flitered_df['Planet Name'], help = 'Filter report to show only one exoplanet')
 Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
-g1, g2 = st.columns((1,3))    
+if Selected_Planet.empty:
+ st.write('No matching planet found.')
+else:
+ g1, g2 = st.columns((1,3))    
 
-fig1 = go.Figure(go.Indicator(
+ fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
         value = Selected_Planet.iat[0,3],
         domain = {'x': [0, 1], 'y': [0, 1]},
@@ -62,7 +65,7 @@ fig1 = go.Figure(go.Indicator(
                 {'range': [0.34, 0.66], 'color': 'orange'},
                 {'range': [0.67, 1], 'color': 'green'}]}))
 
-g1.plotly_chart(fig1, use_container_width=True)
+ g1.plotly_chart(fig1, use_container_width=True)
 
 #fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
 
