@@ -13,11 +13,10 @@ t1, t2 = st.columns((1,1))
 t1.title("Life On Mars Dashboard")
   
 Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
-
-# Display the slider in the sidebar for the user to choose the minimum planet radius
+filtered_df = Exoplanet_df.copy()
 
 Input = pd.read_csv("./Input.csv")
-Input_Selector = st.sidebar.selectbox('Select Input Option', Input, help = 'Filter report to show only one feature')
+Input_Selector = st.sidebar.selectbox('Select Input Option', Input, default=None, help = 'Filter report to show only one feature')
 
 min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
 max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
@@ -34,14 +33,22 @@ if Input_Selector == 'Slider':
 
  planet_temp_options = st.sidebar.slider('Select Required Temperature Range:', value = (min_temp, max_temp))
 
- Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]]
- flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < planet_radius_options[1]]
+ #Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]]
+ #flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < planet_radius_options[1]]
 
- Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]]
- flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]]
+ #Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]]
+ #flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]]
 
- Min_flitered_df = flitered_df.loc[flitered_df['Planet Temperature'] > planet_temp_options[0]]
- flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < planet_temp_options[1]]
+ #Min_flitered_df = flitered_df.loc[flitered_df['Planet Temperature'] > planet_temp_options[0]]
+ #flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < planet_temp_options[1]]
+ filtered_df = filtered_df.loc[
+        (filtered_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]) &
+        (filtered_df['Planet Radius [Earth Radius]'] < planet_radius_options[1]) &
+        (filtered_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]) &
+        (filtered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]) &
+        (filtered_df['Planet Temperature'] > planet_temp_options[0]) &
+        (filtered_df['Planet Temperature'] < planet_temp_options[1])
+    ]
  
 elif Input_Selector == 'Number Input':
   Input_min_radius = st.sidebar.number_input('Minimum Planet Radius:', min_radius)
@@ -51,14 +58,23 @@ elif Input_Selector == 'Number Input':
   Input_min_temp = st.sidebar.number_input('Minimum Planet Temperature:', min_temp)
   Input_max_temp = st.sidebar.number_input('Maximum Planet Temperature:', max_temp)
 
-  Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > Input_min_radius]
-  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < Input_max_radius]
+  #Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > Input_min_radius]
+  #flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < Input_max_radius]
 
-  Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > Input_min_mass]
-  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < Input_max_mass]
+  #Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > Input_min_mass]
+  #flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < Input_max_mass]
 
-  Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > Input_min_temp]
-  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < Input_max_temp]
+  #Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > Input_min_temp]
+  #flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < Input_max_temp]
+  
+  filtered_df = filtered_df.loc[
+        (filtered_df['Planet Radius [Earth Radius]'] > input_min_radius) &
+        (filtered_df['Planet Radius [Earth Radius]'] < input_max_radius) &
+        (filtered_df['Planet Mass [Earth Mass]'] > input_min_mass) &
+        (filtered_df['Planet Mass [Earth Mass]'] < input_max_mass) &
+        (filtered_df['Planet Temperature'] > input_min_temp) &
+        (filtered_df['Planet Temperature'] < input_max_temp)
+    ]
  
 st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
