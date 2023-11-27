@@ -21,15 +21,14 @@ with st.spinner('Updating Report...'):
     #Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 
     Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one exoplanet')
+    
+    Feature_List = pd.read_csv("./Feature_List.csv")
 
+    Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
     if Planet:
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
-
-Feature_List = pd.read_csv("./Feature_List.csv")
-
-Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
 g1, g2 = st.columns((1,3))    
 
