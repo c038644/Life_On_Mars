@@ -27,9 +27,6 @@ with st.spinner('Updating Report...'):
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
 
-Feature_List = pd.read_csv("./Feature_List.csv")
-Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
-
 g1, g2 = st.columns((1,3))    
 
 fig1 = go.Figure(go.Indicator(
@@ -49,6 +46,10 @@ fig1 = go.Figure(go.Indicator(
                 {'range': [0.67, 1], 'color': 'green'}]}))
 
 g1.plotly_chart(fig1, use_container_width=True)
+
+Feature_List = pd.read_csv("./Feature_List.csv")
+
+Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
 fig2 = px.scatter(Exoplanet_with_Continent, x = 'Planet Name', y = Feature)
 
