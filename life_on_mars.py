@@ -20,11 +20,10 @@ with st.spinner('Updating Report...'):
     Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
     #Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 
-    Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one exoplanet')
- 
-    if Planet:
-        Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
-        st.write(Selected_Planet)
+    
+   # if Planet:
+        
+   #     st.write(Selected_Planet)
 
 min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
 max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
@@ -42,7 +41,8 @@ flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'
 Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]]
 flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]]
 
-flitered_df.shape
+Planet = st.selectbox('Select Planet', flitered_df['Planet Name'], help = 'Filter report to show only one exoplanet')
+Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
 g1, g2 = st.columns((1,3))    
 
@@ -64,6 +64,6 @@ fig1 = go.Figure(go.Indicator(
 
 g1.plotly_chart(fig1, use_container_width=True)
 
-#fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
+fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
 
-#g2.plotly_chart(fig2, use_container_width=True)
+g2.plotly_chart(fig2, use_container_width=True)
