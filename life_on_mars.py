@@ -21,10 +21,12 @@ with st.spinner('Updating Report...'):
     #Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 
     Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one exoplanet')
-    
-    Feature_List = pd.read_csv("./Feature_List.csv")
+ 
+ Planet_Radius_Min_options = Exoplanet_df['Planet Radius[Earth Radius]'].unique()   
 
-    Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
+ Planet_Radius_Min = st.sidebar.multiselect('Minimum Planet Radius', Exoplanet_df.loc[Exoplanet_df['Planet Radius[Earth Radius]'] < Planet_Radius_Min_options])
+
+ Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
     if Planet:
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
