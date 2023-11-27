@@ -12,12 +12,12 @@ t1, t2 = st.columns((1,1))
 
 t1.title("Life On Mars Dashboard")
 
-with st.spinner('Updating Report...'):
+#with st.spinner('Updating Report...'):
     
-    Planet_Selection = pd.read_csv("./Planet_Names.csv")
-    Planet_Selection = Planet_Selection.drop(columns=['0'])
+   # Planet_Selection = pd.read_csv("./Planet_Names.csv")
+   # Planet_Selection = Planet_Selection.drop(columns=['0'])
     
-    Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
+Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
     #Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 
     
@@ -64,6 +64,6 @@ fig1 = go.Figure(go.Indicator(
 
 g1.plotly_chart(fig1, use_container_width=True)
 
-fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
+#fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
 
-g2.plotly_chart(fig2, use_container_width=True)
+#g2.plotly_chart(fig2, use_container_width=True)
