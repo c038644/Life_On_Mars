@@ -46,6 +46,10 @@ elif Input_Selector == 'Number Input':
   min_radius = st.sidebar.number_input('Enter a Precise Planet Radius:', min_radius)
   max_radius = st.sidebar.number_input('Enter a Precise Planet Radius:', max_radius)
 
+  Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > min_radius]
+  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < max_radius]
+ 
+
 
 
 st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
