@@ -43,15 +43,19 @@ if Input_Selector == 'Slider':
  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < planet_temp_options[1]]
  
 elif Input_Selector == 'Number Input':
-  min_radius = st.sidebar.number_input('Enter a Precise Planet Radius:', min_radius)
-  max_radius = st.sidebar.number_input('Enter a Precise Planet Radius:', max_radius)
+  min_radius = st.sidebar.number_input('Minimum Planet Radius:', min_radius)
+  max_radius = st.sidebar.number_input('Maximum Planet Radius:', max_radius)
+  min_mass = st.sidebar.number_input('Minimum Planet Mass:', min_mass)
+  max_mass = st.sidebar.number_input('Maximum Planet Mass:', max_mass)
+  min_temp = st.sidebar.number_input('Minimum Planet Mass:', min_temp)
+  max_temp = st.sidebar.number_input('Maximum Planet Mass:', max_temp)
 
   Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > min_radius]
   flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < max_radius]
+
+  Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > min_temp]
+  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < max_temp]
  
-
-
-
 st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
 #Planet = st.selectbox('Select Planet', flitered_df['Planet Name'], help = 'Filter report to show only one exoplanet')
