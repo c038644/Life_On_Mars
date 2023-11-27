@@ -12,7 +12,7 @@ t1, t2 = st.columns((1,1))
 
 t1.title("Life On Mars Dashboard")
 
-t2.title("Life On Mars Dashboard")
+#t2.title("Life On Mars Dashboard")
 
 with st.spinner('Updating Report...'):
     
