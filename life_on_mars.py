@@ -41,7 +41,7 @@ flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'
 Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]]
 flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]]
 
-st.sidebar.write(flitered_df.shape)
+st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
 Planet = st.selectbox('Select Planet', flitered_df['Planet Name'], help = 'Filter report to show only one exoplanet')
 Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
