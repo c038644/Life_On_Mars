@@ -48,7 +48,7 @@ Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
 if Selected_Planet.empty:
  st.write('No matching planet found.')
- continue
+ st.experimental_rerun()
 else:
  g1, g2 = st.columns((1,3))    
 
