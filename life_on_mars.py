@@ -65,8 +65,8 @@ elif Input_Selector == 'Number Input':
  Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > Input_min_mass]
  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < Input_max_mass]
 
- Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > Input_min_temp]
- flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < Input_max_temp]
+ Min_flitered_df = flitered_df.loc[flitered_df['Planet Temperature'] > Input_min_temp]
+ flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < Input_max_temp]
   
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > input_min_radius) &
