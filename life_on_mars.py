@@ -32,32 +32,32 @@ flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < 
 
 st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
-Planet = st.selectbox('Select Planet', flitered_df['Planet Name'], help = 'Filter report to show only one exoplanet')
-Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
+#Planet = st.selectbox('Select Planet', flitered_df['Planet Name'], help = 'Filter report to show only one exoplanet')
+#Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
-if Selected_Planet.empty:
- st.write('No matching planet found.')
+#if Selected_Planet.empty:
+# st.write('No matching planet found.')
  #st.experimental_rerun()
-else:
- g1, g2 = st.columns((1,3))    
+#else:
+# g1, g2 = st.columns((1,3))    
 
- fig1 = go.Figure(go.Indicator(
-        mode = "gauge+number+delta",
-        value = Selected_Planet.iat[0,3],
-        domain = {'x': [0, 1], 'y': [0, 1]},
-        title = {'text': "Life Ranking", 'font': {'size': 24}},
-        gauge = {
-            'axis': {'range': [0, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
-            'bar': {'color': "black"},
-            'bgcolor': "white",
-            'borderwidth': 2,
-            'bordercolor': "gray",
-            'steps': [
-                {'range': [0, 0.33], 'color': 'red'},
-                {'range': [0.34, 0.66], 'color': 'orange'},
-                {'range': [0.67, 1], 'color': 'green'}]}))
+# fig1 = go.Figure(go.Indicator(
+#        mode = "gauge+number+delta",
+#        value = Selected_Planet.iat[0,3],
+#        domain = {'x': [0, 1], 'y': [0, 1]},
+#        title = {'text': "Life Ranking", 'font': {'size': 24}},
+#        gauge = {
+#            'axis': {'range': [0, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
+#            'bar': {'color': "black"},
+#            'bgcolor': "white",
+#            'borderwidth': 2,
+#            'bordercolor': "gray",
+#            'steps': [
+#                {'range': [0, 0.33], 'color': 'red'},
+#                {'range': [0.34, 0.66], 'color': 'orange'},
+#                {'range': [0.67, 1], 'color': 'green'}]}))
 
- g1.plotly_chart(fig1, use_container_width=True)
+#g1.plotly_chart(fig1, use_container_width=True)
 
 Feature_List = Exoplanet_df.columns.tolist()
 
@@ -65,4 +65,4 @@ Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to 
 
 fig2 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
-g2.plotly_chart(fig2, use_container_width=True)
+g2.plotly_chart(fig2, use_container_width=False)
