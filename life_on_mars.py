@@ -59,10 +59,12 @@ st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
 #g1.plotly_chart(fig1, use_container_width=True)
 
+g1 = st.columns((1))
+
 Feature_List = Exoplanet_df.columns.tolist()
 
 Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
-fig2 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
+fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
-g2.plotly_chart(fig2, use_container_width=False)
+g1.plotly_chart(fig1, use_container_width=True)
