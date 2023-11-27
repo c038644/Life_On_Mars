@@ -51,6 +51,6 @@ Feature_List = pd.read_csv("./Feature_List.csv")
 
 Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
-fig2 = px.scatter(Exoplanet_with_Continent, x = 'pl_orbsmax', y = Feature)
+fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
 
 g2.plotly_chart(fig2, use_container_width=True)
