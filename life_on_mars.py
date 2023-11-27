@@ -18,6 +18,8 @@ min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
 max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
 min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
 max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
+min_mass = Exoplanet_df['Planet Temperature'].min()
+max_mass = Exoplanet_df['Planet Temperature'].max()
 
 # Display the slider in the sidebar for the user to choose the minimum planet radius
 planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
@@ -29,6 +31,9 @@ flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'
 
 Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]]
 flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]]
+
+Min_flitered_df = flitered_df.loc[flitered_df['Planet Temperature'] > planet_mass_options[0]]
+flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < planet_mass_options[1]]
 
 st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
