@@ -50,6 +50,6 @@ fig1 = go.Figure(go.Indicator(
 
 g1.plotly_chart(fig1, use_container_width=True)
 
-g2.plotly_chart(fig2, use_container_width=True)
-
 fig2 = px.scatter(Exoplanet_with_Continent, x = 'Planet Name', y = Feature)
+
+g2.plotly_chart(fig2, use_container_width=True)
