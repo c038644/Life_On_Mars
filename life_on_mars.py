@@ -15,6 +15,13 @@ t1.title("Life On Mars Dashboard")
 Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 filtered_df = Exoplanet_df.copy()
 
+min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
+max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
+min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
+max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
+min_temp = Exoplanet_df['Planet Temperature'].min()
+max_temp = Exoplanet_df['Planet Temperature'].max()
+
 #Input = pd.read_csv("./Input.csv")
 #Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
 #default_input_option = 'Choose'
@@ -23,13 +30,6 @@ Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option"
 
 if Input_Selector == 'Slider':
 
- min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
- max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
- min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
- max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
- min_temp = Exoplanet_df['Planet Temperature'].min()
- max_temp = Exoplanet_df['Planet Temperature'].max()
- 
  planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
  planet_mass_options = st.sidebar.slider('Select Required Planet Masses:', value = (min_mass, max_mass))
