@@ -28,26 +28,21 @@ with st.spinner('Updating Report...'):
 
 min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
 max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
-#start_value = Exoplanet_df['Planet Radius [Earth Radius]'].min()
+min_mass = Exoplanet_df['Planet Mass [Earth Radius]'].min()
+max_mass = Exoplanet_df['Planet Mass [Earth Radius]'].max()
 
 # Display the slider in the sidebar for the user to choose the minimum planet radius
-planet_radius_min_options = st.sidebar.slider('Select Minimum Planet Radius:', 
-                                              value = (min_radius, max_radius))
+planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
-#st.write('number is', planet_radius_min_options[0])
-#Planet_Radius_Min_options = st.sidebar.number_input('Planet_Radius_Min =')   
+planet_mass_options = st.sidebar.slider('Select Required Planet Masses:', value = (min_mass, max_mass))
 
-#flitered_df = st.sidebar.multiselect('Minimum Planet Radius', Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > Planet_Radius_Min_options])
-Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > planet_radius_min_options[0]]
-flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < planet_radius_min_options[1]]
+Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]]
+flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < planet_radius_options[1]]
 
-
-# Filter the DataFrame based on the chosen minimum planet radius
-#filtered_df = Exoplanet_df.loc[(Exoplanet_df['Planet Radius [Earth Radius]'] > planet_radius_min_options[0]) & 
-#                                (Exoplanet_df['Planet Radius [Earth Radius]'] < planet_radius_min_options[1])]
+Min_flitered_df = flitered_df.loc[flitered_df['Planet Radius [Earth Radius]'] > planet_mass_options[0]]
+flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < planet_mass_options[1]]
 
 flitered_df.shape
-#Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
 g1, g2 = st.columns((1,3))    
 
