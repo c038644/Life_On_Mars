@@ -19,13 +19,14 @@ Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 Input = pd.read_csv("./Input.csv")
 Input_Selector = st.sidebar.selectbox('Select Input Option', Input, help = 'Filter report to show only one feature')
 
+min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
+max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
+min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
+max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
+min_temp = Exoplanet_df['Planet Temperature'].min()
+max_temp = Exoplanet_df['Planet Temperature'].max()
+
 if Input_Selector == 'Slider':
- min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
- max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
- min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
- max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
- min_temp = Exoplanet_df['Planet Temperature'].min()
- max_temp = Exoplanet_df['Planet Temperature'].max()
  
  planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
@@ -43,12 +44,12 @@ if Input_Selector == 'Slider':
  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < planet_temp_options[1]]
  
 elif Input_Selector == 'Number Input':
-  min_radius = st.sidebar.number_input('Minimum Planet Radius:', min_radius)
-  max_radius = st.sidebar.number_input('Maximum Planet Radius:', max_radius)
-  min_mass = st.sidebar.number_input('Minimum Planet Mass:', min_mass)
-  max_mass = st.sidebar.number_input('Maximum Planet Mass:', max_mass)
-  min_temp = st.sidebar.number_input('Minimum Planet Temperature:', min_temp)
-  max_temp = st.sidebar.number_input('Maximum Planet Temperature:', max_temp)
+  min_radius = st.sidebar.number_input('Minimum Planet Radius:', Input_min_radius)
+  max_radius = st.sidebar.number_input('Maximum Planet Radius:', Input_max_radius)
+  min_mass = st.sidebar.number_input('Minimum Planet Mass:', Input_min_mass)
+  max_mass = st.sidebar.number_input('Maximum Planet Mass:', Input_max_mass)
+  min_temp = st.sidebar.number_input('Minimum Planet Temperature:', Input_min_temp)
+  max_temp = st.sidebar.number_input('Maximum Planet Temperature:', Input_max_temp)
 
   Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > min_radius]
   flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < max_radius]
