@@ -63,7 +63,7 @@ g1 = st.columns((1))
 
 Feature_List = pd.read_csv("./Feature_List.csv")
 
-Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
+Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
 fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
