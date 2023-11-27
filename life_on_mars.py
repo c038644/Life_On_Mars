@@ -15,8 +15,10 @@ t1.title("Life On Mars Dashboard")
 Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 filtered_df = Exoplanet_df.copy()
 
-Input = pd.read_csv("./Input.csv")
-Input_Selector = st.sidebar.selectbox('Select Input Option', Input, default='Choose', help = 'Filter report to show only one feature')
+#Input = pd.read_csv("./Input.csv")
+Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
+default_input_option = 'Choose'
+Input_Selector = st.sidebar.selectbox('Select Input Option', Input, default=default_input_option, help = 'Filter report to show only one feature')
 
 if Input_Selector == 'Slider':
 
