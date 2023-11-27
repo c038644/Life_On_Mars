@@ -22,6 +22,7 @@ min_temp = Exoplanet_df['Planet Temperature'].min()
 max_temp = Exoplanet_df['Planet Temperature'].max()
 
 # Display the slider in the sidebar for the user to choose the minimum planet radius
+precise_input = st.sidebar.number_input('Enter a Precise Planet Radius:', min_radius, max_radius)
 planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
 planet_mass_options = st.sidebar.slider('Select Required Planet Masses:', value = (min_mass, max_mass))
