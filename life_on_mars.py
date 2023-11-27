@@ -61,7 +61,7 @@ st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
 g1 = st.columns((1))
 
-Feature_List = Exoplanet_df.columns
+Feature_List = pd.read_csv("./Feature_List.csv")
 
 Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
