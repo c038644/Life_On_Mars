@@ -59,7 +59,7 @@ st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
 #g1.plotly_chart(fig1, use_container_width=True)
 
-g1 = st.columns((1))
+g1 = st.columns((1,))
 
 Feature_List = pd.read_csv("./Feature_List.csv")
 
@@ -67,4 +67,4 @@ Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter re
 
 fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
-g1.plotly_chart(fig1, use_container_width=True)
+g1[0].plotly_chart(fig1, use_container_width=True)
