@@ -90,6 +90,18 @@ elif Input_Selector == 'Number Input':
 
  Min_flitered_df = flitered_df.loc[flitered_df['Planet Temperature'] > Input_min_temp]
  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < Input_max_temp]
+
+ st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
+
+ g1 = st.columns((1,))
+
+ Feature_List = pd.read_csv("./Feature_List.csv")
+
+ Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
+
+ fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
+
+ g1[0].plotly_chart(fig1, use_container_width=True)
   
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > input_min_radius) &
