@@ -16,7 +16,7 @@ Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 filtered_df = Exoplanet_df.copy()
 
 Input = pd.read_csv("./Input.csv")
-Input_Selector = st.sidebar.selectbox('Select Input Option', Input, help = 'Filter report to show only one feature')
+Input_Selector = st.sidebar.selectbox('Select Input Option', Input, default='Choose', help = 'Filter report to show only one feature')
 
 if Input_Selector == 'Slider':
 
