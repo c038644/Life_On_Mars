@@ -63,6 +63,6 @@ Feature_List = Exoplanet_df.columns.tolist()
 
 Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
-fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
+fig2 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
 g2.plotly_chart(fig2, use_container_width=True)
