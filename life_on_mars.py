@@ -26,7 +26,7 @@ max_temp = Exoplanet_df['Planet Temperature'].max()
 Input = pd.read_csv("./Input.csv")
 Input_Selector = st.sidebar.selectbox('Select Input Option', Input, help = 'Filter report to show only one feature')
 
-if Input_Selector = 'Slider':
+if Input_Selector == 'Slider':
  planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
  planet_mass_options = st.sidebar.slider('Select Required Planet Masses:', value = (min_mass, max_mass))
@@ -42,7 +42,7 @@ if Input_Selector = 'Slider':
  Min_flitered_df = flitered_df.loc[flitered_df['Planet Temperature'] > planet_temp_options[0]]
  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < planet_temp_options[1]]
  
-elif Input_Selector = 'Number Input':
+elif Input_Selector == 'Number Input':
   min_radius = st.sidebar.number_input('Enter a Precise Planet Radius:', min_radius)
   max_radius = st.sidebar.number_input('Enter a Precise Planet Radius:', max_radius)
 
