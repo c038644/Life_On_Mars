@@ -11,19 +11,8 @@ st.set_page_config(page_title='Life On Mars Dashboard',  layout='wide', page_ico
 t1, t2 = st.columns((1,1)) 
 
 t1.title("Life On Mars Dashboard")
-
-#with st.spinner('Updating Report...'):
-    
-   # Planet_Selection = pd.read_csv("./Planet_Names.csv")
-   # Planet_Selection = Planet_Selection.drop(columns=['0'])
-    
+  
 Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
-    #Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
-
-    
-   # if Planet:
-        
-   #     st.write(Selected_Planet)
 
 min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
 max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
@@ -70,6 +59,10 @@ else:
 
  g1.plotly_chart(fig1, use_container_width=True)
 
-#fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
+Feature_List = Exoplanet_df.columns.tolist()
 
-#g2.plotly_chart(fig2, use_container_width=True)
+Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
+
+fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
+
+g2.plotly_chart(fig2, use_container_width=True)
