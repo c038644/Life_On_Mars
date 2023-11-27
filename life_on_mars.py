@@ -12,8 +12,6 @@ t1, t2 = st.columns((1,1))
 
 t1.title("Life On Mars Dashboard")
 
-#t2.title("Life On Mars Dashboard")
-
 with st.spinner('Updating Report...'):
     
     Planet_Selection = pd.read_csv("./Planet_Names.csv")
@@ -28,6 +26,9 @@ with st.spinner('Updating Report...'):
     if Planet:
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
+
+Feature_List = pd.read_csv("./Feature_List.csv")
+Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
 g1, g2 = st.columns((1,3))    
 
@@ -48,3 +49,7 @@ fig1 = go.Figure(go.Indicator(
                 {'range': [0.67, 1], 'color': 'green'}]}))
 
 g1.plotly_chart(fig1, use_container_width=True)
+
+g2.plotly_chart(fig2, use_container_width=True)
+
+fig2 = px.scatter(Exoplanet_with_Continent, x = 'Planet Name', y = Feature)
