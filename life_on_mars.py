@@ -22,15 +22,15 @@ with st.spinner('Updating Report...'):
 
     Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one exoplanet')
  
- Planet_Radius_Min_options = Exoplanet_df['Planet Radius[Earth Radius]'].unique()   
-
- Planet_Radius_Min = st.sidebar.multiselect('Minimum Planet Radius', Exoplanet_df.loc[Exoplanet_df['Planet Radius[Earth Radius]'] < Planet_Radius_Min_options])
-
- Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
-
     if Planet:
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
+
+Planet_Radius_Min_options = Exoplanet_df['Planet Radius[Earth Radius]'].unique()   
+
+Planet_Radius_Min = st.sidebar.multiselect('Minimum Planet Radius', Exoplanet_df.loc[Exoplanet_df['Planet Radius[Earth Radius]'] < Planet_Radius_Min_options])
+
+#Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
 g1, g2 = st.columns((1,3))    
 
@@ -52,6 +52,6 @@ fig1 = go.Figure(go.Indicator(
 
 g1.plotly_chart(fig1, use_container_width=True)
 
-fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
+#fig2 = px.scatter(Exoplanet_df, x = 'Planet Name', y = Feature)
 
-g2.plotly_chart(fig2, use_container_width=True)
+#g2.plotly_chart(fig2, use_container_width=True)
