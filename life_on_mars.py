@@ -18,7 +18,7 @@ filtered_df = Exoplanet_df.copy()
 #Input = pd.read_csv("./Input.csv")
 #Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
 #default_input_option = 'Choose'
-Input_Selector = st.sidebar.selectbox('Select Input Option', ('Slider', 'Number Input'), placeholder="Choose an option")
+Input_Selector = st.sidebar.selectbox('Select Input Option', ('Slider', 'Number Input'), index = None, placeholder = "Choose an option")
 
 if Input_Selector == 'Slider':
 
