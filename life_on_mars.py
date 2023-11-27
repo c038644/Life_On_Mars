@@ -26,10 +26,10 @@ with st.spinner('Updating Report...'):
         Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
         st.write(Selected_Planet)
 
-Planet_Radius_Min_options = Exoplanet_df['Planet Radius [Earth Radius]'].unique()   
+Planet_Radius_Min_options = st.text_input('Planet_Radius_Min =')   
 
-Planet_Radius_Min = st.sidebar.multiselect('Minimum Planet Radius', Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] < Planet_Radius_Min_options])
-
+flitered_df = st.sidebar.multiselect('Minimum Planet Radius', Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > Planet_Radius_Min_options])
+flitered_df.shape
 #Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
 g1, g2 = st.columns((1,3))    
