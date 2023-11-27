@@ -44,6 +44,18 @@ if Input_Selector == 'Slider':
 
  Min_temp_flitered_df = flitered_mass_df.loc[flitered_mass_df['Planet Temperature'] > planet_temp_options[0]]
  flitered_df = Min_temp_flitered_df.loc[Min_temp_flitered_df['Planet Temperature'] < planet_temp_options[1]]
+
+ st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
+
+ g1 = st.columns((1,))
+
+ Feature_List = pd.read_csv("./Feature_List.csv")
+
+ Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
+
+ fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
+
+ g1[0].plotly_chart(fig1, use_container_width=True)
  
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]) &
