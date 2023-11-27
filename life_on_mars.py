@@ -39,8 +39,8 @@ planet_mass_options = st.sidebar.slider('Select Required Planet Masses:', value 
 Min_flitered_df = Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]]
 flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Radius]'] < planet_radius_options[1]]
 
-Min_flitered_df = flitered_df.loc[flitered_df['Planet Radius [Earth Mass]'] > planet_mass_options[0]]
-flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Radius [Earth Mass]'] < planet_mass_options[1]]
+Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]]
+flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]]
 
 flitered_df.shape
 
