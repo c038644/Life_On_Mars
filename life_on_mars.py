@@ -32,12 +32,9 @@ start_value = Exoplanet_df['Planet Radius [Earth Radius]'].min()
 
 # Display the slider in the sidebar for the user to choose the minimum planet radius
 planet_radius_min_options = st.sidebar.slider('Select Minimum Planet Radius:', 
-                                              min_value=min_radius, 
-                                              max_value=max_radius, 
-                                              value=start_value, 
-                                              step=100.0)
+                                              value = (min_radius, max_radius)
 
-st.write('number is', planet_radius_min_options)
+st.write('number is', value)
 #Planet_Radius_Min_options = st.sidebar.number_input('Planet_Radius_Min =')   
 
 #flitered_df = st.sidebar.multiselect('Minimum Planet Radius', Exoplanet_df.loc[Exoplanet_df['Planet Radius [Earth Radius]'] > Planet_Radius_Min_options])
