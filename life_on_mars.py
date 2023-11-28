@@ -111,6 +111,8 @@ elif Input_Selector == 'Goldilocks Calculator':
  Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
  Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
+ st.write(Selected_Planet)
+
  st.write('Does the planet have a solid surface?')
 
  if ((Selected_Planet['Planet Mass [Earth Mass]'] > 258) & (Selected_Planet['Planet Mass [Earth Mass]'] < 395)):
