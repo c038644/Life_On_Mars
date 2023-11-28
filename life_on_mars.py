@@ -109,8 +109,9 @@ elif Input_Selector == 'Number Input Search':
 
 elif Input_Selector == 'Goldilocks Calculator':
 
- Planet_Selection = pd.read_csv("./Planet_Names.csv")
- Planet_Selection = Planet_Selection.drop(columns=['0'])
+ #Planet_Selection = pd.read_csv("./Planet_Names.csv")
+ #Planet_Selection = Planet_Selection.drop(columns=['0'])
+ Planet_Selection = filtered_df['Planet Name'] 
 
  Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
  Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
