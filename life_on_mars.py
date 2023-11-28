@@ -124,7 +124,7 @@ elif Input_Selector == 'Goldilocks Calculator':
  
  st.write('Does the planet have a temperature between 258 K and 395 K?')
  st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
- st.write('Does the planet's sun have a sutiable luminosity?')
+ st.write('Does the planets sun have a sutiable luminosity?')
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
   
