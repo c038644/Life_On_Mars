@@ -19,7 +19,7 @@ filtered_df = Exoplanet_df.copy()
 #Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
 #default_input_option = 'Choose'
 #Input_Selector = st.sidebar.selectbox('Select Input Option', ('Slider', 'Number Input'), index = None, placeholder = "Choose an option")
-Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option", 'Slider', 'Number Input', 'Goldilocks Calculator'), placeholder = "Choose an option")
+Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option:", 'Slider Search', 'Number Input Search', 'Goldilocks Calculator'), placeholder = "Choose an option")
 
 if Input_Selector == 'Slider':
 
@@ -109,10 +109,11 @@ elif Input_Selector == 'Goldilocks Calculator':
  Planet_Selection = Planet_Selection.drop(columns=['0'])
 
  Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
+ Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
  st.write('Does the planet have a solid surface?')
 
- if ((Planet['Planet Mass [Earth Mass]'] > 258) & (Planet['Planet Mass [Earth Mass]'] < 395)):
+ if ((Selected_Planet['Planet Mass [Earth Mass]'] > 258) & (Selected_Planet['Planet Mass [Earth Mass]'] < 395)):
      st.write('Yes !')
  
  st.write('Does the planet have a temperature between 258 K and 395 K?')
