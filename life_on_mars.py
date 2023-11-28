@@ -14,10 +14,10 @@ t1.title("Life On Mars Dashboard")
   
 #Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 Exoplanet_df = pd.read_csv("./exoplanets_cleaned.csv")
-filtered_df = Exoplanet_df.copy()
-filtered_df['Lum_Max'] = np.sqrt(abs(filtered_df['Star luminosity'])/0.53)
-filtered_df['Lum_Min'] = np.sqrt(abs(filtered_df['Star luminosity'])/1.1)
 
+Exoplanet_df['Lum_Max'] = np.sqrt(abs(Exoplanet_df['Star luminosity'])/0.53)
+Exoplanet_df['Lum_Min'] = np.sqrt(abs(Exoplanet_df['Star luminosity'])/1.1)
+filtered_df = Exoplanet_df.copy()
 
 #Input = pd.read_csv("./Input.csv")
 #Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
