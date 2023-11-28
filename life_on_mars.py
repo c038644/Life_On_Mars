@@ -111,6 +111,10 @@ elif Input_Selector == 'Goldilocks Calculator':
  Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
 
  st.write('Does the planet have a solid surface?')
+
+ if ((Planet['Planet Mass [Earth Mass]'] > 258) & (Planet['Planet Mass [Earth Mass]'] < 395))
+     st.write('Yes !')
+ 
  st.write('Does the planet have a temperature between 258 K and 395 K?')
  st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
  st.write('Is it possible the planet has water?')
