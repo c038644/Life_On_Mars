@@ -119,12 +119,24 @@ elif Input_Selector == 'Goldilocks Calculator':
 
  st.write('Does the planet have a solid surface?')
 
- if ((Selected_Planet['Planet Mass [Earth Mass]'] > 258) & (Selected_Planet['Planet Mass [Earth Mass]'] < 395)).all():
+ if ((Selected_Planet['Planet Mass [Earth Mass]'] > 0.5) & (Selected_Planet['Planet Mass [Earth Mass]'] < 40)).all():
   st.write('Yes !')
+ else:
+  st.write('No')
  
  st.write('Does the planet have a temperature between 258 K and 395 K?')
+ if ((Selected_Planet['Planet Temperature'] > 258) & (Selected_Planet['Planet Temperature'] < 395)).all():
+  st.write('Yes !')
+ else:
+  st.write('No') 
+  
  st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
  st.write('Does the planets sun have a sutiable luminosity?')
+ if ((Selected_Planet['Star luminosity'] > Selected_Planet['Lum_Min']) & (Selected_Planet['Star luminosity'] < Selected_Planet['Lum_Min'])).all():
+  st.write('Yes !')
+ else:
+  st.write('No') 
+  
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
   
