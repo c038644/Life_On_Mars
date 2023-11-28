@@ -21,7 +21,7 @@ filtered_df = Exoplanet_df.copy()
 #Input_Selector = st.sidebar.selectbox('Select Input Option', ('Slider', 'Number Input'), index = None, placeholder = "Choose an option")
 Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option:", 'Slider Search', 'Number Input Search', 'Goldilocks Calculator'), placeholder = "Choose an option")
 
-if Input_Selector == 'Slider':
+if Input_Selector == 'Slider Search':
 
  min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
  max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
@@ -66,7 +66,7 @@ if Input_Selector == 'Slider':
  #       (filtered_df['Planet Temperature'] < planet_temp_options[1])
  #   ]
  
-elif Input_Selector == 'Number Input':
+elif Input_Selector == 'Number Input Search':
 
  min_radius = Exoplanet_df['Planet Radius [Earth Radius]'].min()
  max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
