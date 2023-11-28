@@ -19,7 +19,7 @@ filtered_df = Exoplanet_df.copy()
 #Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
 #default_input_option = 'Choose'
 #Input_Selector = st.sidebar.selectbox('Select Input Option', ('Slider', 'Number Input'), index = None, placeholder = "Choose an option")
-Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option", 'Slider', 'Number Input'), placeholder = "Choose an option")
+Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option", 'Slider', 'Number Input', 'Goldilocks Calculator'), placeholder = "Choose an option")
 
 if Input_Selector == 'Slider':
 
@@ -102,6 +102,19 @@ elif Input_Selector == 'Number Input':
  fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
  g1[0].plotly_chart(fig1, use_container_width=True)
+
+elif Input_Selector == 'Goldilocks Calculator':
+
+ Planet_Selection = pd.read_csv("./Planet_Names.csv")
+ Planet_Selection = Planet_Selection.drop(columns=['0'])
+
+ Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
+
+ st.write('Does the planet have a solid surface?')
+ st.write('Does the planet have a temperature between 258 K and 395 K?')
+ st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
+ st.write('Is it possible the planet has water?')
+ st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
   
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > input_min_radius) &
