@@ -14,7 +14,7 @@ t1.title("Life On Mars Dashboard")
   
 #Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 Exoplanet_df = pd.read_csv("./exoplanets_cleaned.csv")
-Exoplanet_df = Exoplanet_df.drop(columns=['0'])
+#Exoplanet_df = Exoplanet_df.drop(columns=['0'])
 
 Exoplanet_df['Lum_Max'] = np.sqrt(abs(Exoplanet_df['Star luminosity'])/0.53)
 Exoplanet_df['Lum_Min'] = np.sqrt(abs(Exoplanet_df['Star luminosity'])/1.1)
@@ -54,7 +54,8 @@ if Input_Selector == 'Slider Search':
 
  g1 = st.columns((1,))
 
- Feature_List = pd.read_csv("./Feature_List.csv")
+ Feature_List = flitered_df.columns
+ #Feature_List = pd.read_csv("./Feature_List.csv")
 
  Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
