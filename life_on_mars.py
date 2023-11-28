@@ -112,7 +112,7 @@ elif Input_Selector == 'Goldilocks Calculator':
 
  st.write('Does the planet have a solid surface?')
 
- if ((Planet['Planet Mass [Earth Mass]'] > 258) & (Planet['Planet Mass [Earth Mass]'] < 395))
+ if ((Planet['Planet Mass [Earth Mass]'] > 258) & (Planet['Planet Mass [Earth Mass]'] < 395)):
      st.write('Yes !')
  
  st.write('Does the planet have a temperature between 258 K and 395 K?')
