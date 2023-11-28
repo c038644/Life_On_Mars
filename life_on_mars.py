@@ -46,8 +46,8 @@ if Input_Selector == 'Slider Search':
  Min_mass_flitered_df = flitered_radius_df.loc[flitered_radius_df['Planet Mass [Earth Mass]'] > planet_mass_options[0]]
  flitered_mass_df = Min_mass_flitered_df.loc[Min_mass_flitered_df['Planet Mass [Earth Mass]'] < planet_mass_options[1]]
 
- Min_temp_flitered_df = flitered_mass_df.loc[flitered_mass_df['Planet Temperature'] > planet_temp_options[0]]
- flitered_df = Min_temp_flitered_df.loc[Min_temp_flitered_df['Planet Temperature'] < planet_temp_options[1]]
+ Min_temp_flitered_df = flitered_mass_df.loc[flitered_mass_df['Equilibrium Temperature [K]'] > planet_temp_options[0]]
+ flitered_df = Min_temp_flitered_df.loc[Min_temp_flitered_df['Equilibrium Temperature [K]'] < planet_temp_options[1]]
 
  st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
@@ -76,8 +76,8 @@ elif Input_Selector == 'Number Input Search':
  max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
  min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
  max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
- min_temp = Exoplanet_df['Planet Temperature'].min()
- max_temp = Exoplanet_df['Planet Temperature'].max()
+ min_temp = Exoplanet_df['Equilibrium Temperature [K]'].min()
+ max_temp = Exoplanet_df['Equilibrium Temperature [K]'].max()
  
  Input_min_radius = st.sidebar.number_input('Minimum Planet Radius:', min_radius)
  Input_max_radius = st.sidebar.number_input('Maximum Planet Radius:', min_radius)
@@ -92,8 +92,8 @@ elif Input_Selector == 'Number Input Search':
  Min_flitered_df = flitered_df.loc[flitered_df['Planet Mass [Earth Mass]'] > Input_min_mass]
  flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Mass [Earth Mass]'] < Input_max_mass]
 
- Min_flitered_df = flitered_df.loc[flitered_df['Planet Temperature'] > Input_min_temp]
- flitered_df = Min_flitered_df.loc[Min_flitered_df['Planet Temperature'] < Input_max_temp]
+ Min_flitered_df = flitered_df.loc[flitered_df['Equilibrium Temperature [K]'] > Input_min_temp]
+ flitered_df = Min_flitered_df.loc[Min_flitered_df['Equilibrium Temperature [K]'] < Input_max_temp]
 
  st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
@@ -125,7 +125,7 @@ elif Input_Selector == 'Goldilocks Calculator':
   st.write('No')
  
  st.write('Does the planet have a temperature between 258 K and 395 K?')
- if ((Selected_Planet['Planet Temperature'] > 258) & (Selected_Planet['Planet Temperature'] < 395)).all():
+ if ((Selected_Planet['Equilibrium Temperature [K]'] > 258) & (Selected_Planet['Equilibrium Temperature [K]'] < 395)).all():
   st.write('Yes !')
  else:
   st.write('No') 
