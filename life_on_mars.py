@@ -32,8 +32,8 @@ if Input_Selector == 'Slider Search':
  max_radius = Exoplanet_df['Planet Radius [Earth Radius]'].max()
  min_mass = Exoplanet_df['Planet Mass [Earth Mass]'].min()
  max_mass = Exoplanet_df['Planet Mass [Earth Mass]'].max()
- min_temp = Exoplanet_df['Planet Temperature'].min()
- max_temp = Exoplanet_df['Planet Temperature'].max()
+ min_temp = Exoplanet_df['Equilibrium Temperature [K]'].min()
+ max_temp = Exoplanet_df['Equilibrium Temperature [K]'].max()
 
  planet_radius_options = st.sidebar.slider('Select Required Planet Radii:', value = (min_radius, max_radius))
 
