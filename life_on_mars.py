@@ -14,7 +14,7 @@ t1.title("Life On Mars Dashboard")
   
 #Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 Exoplanet_df = pd.read_csv("./exoplanets_cleaned.csv")
-#Exoplanet_df = Exoplanet_df.drop(columns=['0'])
+Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 
 Exoplanet_df['Lum_Max'] = np.sqrt(abs(Exoplanet_df['Star luminosity'])/0.53)
 Exoplanet_df['Lum_Min'] = np.sqrt(abs(Exoplanet_df['Star luminosity'])/1.1)
