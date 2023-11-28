@@ -15,6 +15,9 @@ t1.title("Life On Mars Dashboard")
 #Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
 Exoplanet_df = pd.read_csv("./exoplanet_cleaned.csv")
 filtered_df = Exoplanet_df.copy()
+filtered_df['Lum_Max'] = np.sqrt(abs(filtered_df['Star luminosity'])/0.53)
+filtered_df['Lum_Min'] = np.sqrt(abs(filtered_df['Star luminosity'])/1.1)
+
 
 #Input = pd.read_csv("./Input.csv")
 #Input = pd.DataFrame({'Options': ['Choose', 'Slider', 'Number Input']})
@@ -116,11 +119,12 @@ elif Input_Selector == 'Goldilocks Calculator':
 
  st.write('Does the planet have a solid surface?')
 
- #if ((Selected_Planet['Planet Mass [Earth Mass]'] > 258) & (Selected_Planet['Planet Mass [Earth Mass]'] < 395)):
- #    st.write('Yes !')
+ if ((Selected_Planet['Planet Mass [Earth Mass]'] > 258) & (Selected_Planet['Planet Mass [Earth Mass]'] < 395)).all():
+  st.write('Yes !')
  
  st.write('Does the planet have a temperature between 258 K and 395 K?')
  st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
+ st.write('Does the planet's sun have a sutiable luminosity?')
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
   
