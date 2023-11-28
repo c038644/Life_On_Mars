@@ -12,7 +12,8 @@ t1, t2 = st.columns((1,1))
 
 t1.title("Life On Mars Dashboard")
   
-Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
+#Exoplanet_df = pd.read_csv("./Exoplanet_with_Continent.csv")
+Exoplanet_df = pd.read_csv("./exoplanet_cleaned.csv")
 filtered_df = Exoplanet_df.copy()
 
 #Input = pd.read_csv("./Input.csv")
