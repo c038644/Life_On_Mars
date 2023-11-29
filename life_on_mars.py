@@ -60,7 +60,7 @@ if Input_Selector == 'Slider Search':
 
  st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
- g1 = st.columns((1,))
+ g1 = st.columns((1, ))
 
  Feature_List = flitered_df.columns
  #Feature_List = pd.read_csv("./Feature_List.csv")
@@ -154,7 +154,7 @@ elif Input_Selector == 'Goldilocks Calculator':
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
  st.write(int(Selected_Planet.iat[0,12])) 
- g1 = st.columns((1,))
+ g1 = st.columns(1)
  
  fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
