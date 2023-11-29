@@ -60,7 +60,7 @@ if Input_Selector == 'Slider Search':
 
  st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
- g1 = st.columns((1,))
+ g1 = st.columns((1))
 
  Feature_List = flitered_df.columns
  #Feature_List = pd.read_csv("./Feature_List.csv")
@@ -69,7 +69,7 @@ if Input_Selector == 'Slider Search':
 
  fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
- g1[0].plotly_chart(fig1, use_container_width=True)
+ g1.plotly_chart(fig1, use_container_width=True)
  
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]) &
@@ -107,7 +107,7 @@ elif Input_Selector == 'Number Input Search':
 
  st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
- g1 = st.columns((1,))
+ g1 = st.columns((1))
 
  #Feature_List = pd.read_csv("./Feature_List.csv")
  Feature_List = flitered_df.columns
@@ -116,7 +116,7 @@ elif Input_Selector == 'Number Input Search':
 
  fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
- g1[0].plotly_chart(fig1, use_container_width=True)
+ g1.plotly_chart(fig1, use_container_width=True)
 
 elif Input_Selector == 'Goldilocks Calculator':
 
@@ -154,26 +154,35 @@ elif Input_Selector == 'Goldilocks Calculator':
  with g2:
   st.write('Does the planet have a solid surface?')
 
- if ((Selected_Planet['Planet Mass [Earth Mass]'] > 0.5) & (Selected_Planet['Planet Mass [Earth Mass]'] < 40)).all():
-  st.write('Yes !')
- else:
-  st.write('No')
+  if ((Selected_Planet['Planet Mass [Earth Mass]'] > 0.5) & (Selected_Planet['Planet Mass [Earth Mass]'] < 40)).all():
+   st.write('Yes !')
+  else:
+   st.write('No')
  
- st.write('Does the planet have a temperature between 258 K and 395 K?')
- if ((Selected_Planet['Equilibrium Temperature [K]'] > 258) & (Selected_Planet['Equilibrium Temperature [K]'] < 395)).all():
-  st.write('Yes !')
- else:
-  st.write('No') 
+  st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
+  if ((Selected_Planet['Orbital Radius'] > Selected_Planet['Lum_Min']) & (Selected_Planet['Orbital Radius'] < Selected_Planet['Lum_Max'])).all():
+   st.write('Yes !')
+   st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
+   st.write('Possibly. If they exist oxygen and nitrogen would remain in the planets atmosphere.')
+  else:
+   st.write('No') 
+
+  st.write('Does the planets sun have a suitable luminosity for the orbit of the planet?')
+  if ((Selected_Planet['Orbital Radius'] > Selected_Planet['Lum_Min']) & (Selected_Planet['Orbital Radius'] < Selected_Planet['Lum_Max'])).all():
+   st.write('Yes !')
+  else:
+   st.write('No') 
   
- st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
- st.write('Does the planets sun have a suitable luminosity for the orbit of the planet?')
- if ((Selected_Planet['Orbital Radius'] > Selected_Planet['Lum_Min']) & (Selected_Planet['Orbital Radius'] < Selected_Planet['Lum_Max'])).all():
-  st.write('Yes !')
- else:
-  st.write('No') 
+  st.write('Does the planet have a temperature between 258 K and 395 K?')
+  if ((Selected_Planet['Equilibrium Temperature [K]'] > 258) & (Selected_Planet['Equilibrium Temperature [K]'] < 395)).all():
+   st.write('Yes !')
+   st.write('Is it possible the planet has water?')
+   st.write('Possibly. If it exists water could be present in all three states of matter.')
+  else:
+   st.write('No')  
   
- st.write('Is it possible the planet has water?')
- st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
+  
+  
 
   
  #filtered_df = filtered_df.loc[
