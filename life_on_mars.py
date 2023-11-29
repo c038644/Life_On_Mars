@@ -109,7 +109,7 @@ elif Input_Selector == 'Number Input Search':
  g1 = st.columns((1,))
 
  #Feature_List = pd.read_csv("./Feature_List.csv")
-  Feature_List = flitered_df.columns
+ Feature_List = flitered_df.columns
 
  Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
