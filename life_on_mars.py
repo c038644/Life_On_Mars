@@ -149,7 +149,7 @@ elif Input_Selector == 'Goldilocks Calculator':
                 {'range': [34, 66], 'color': 'orange'},
                 {'range': [67, 100], 'color': 'green'}]}))
 
- g1[0].plotly_chart(fig1, use_container_width=True)
+ g1.plotly_chart(fig1, use_container_width=True)
 
  with g2:
   st.write('Does the planet have a solid surface?')
