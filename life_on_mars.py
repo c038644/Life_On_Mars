@@ -27,6 +27,8 @@ Exoplanet_df.loc[(Exoplanet_df["Planet Mass [Earth Mass]"] > 0.5) & (Exoplanet_d
 Exoplanet_df.loc[(Exoplanet_df['Orbital Radius'] > Exoplanet_df['Lum_Min']) & (Exoplanet_df['Orbital Radius'] < Exoplanet_df['Lum_Max']), "Score"] += 20
 Exoplanet_df.loc[(Exoplanet_df['atmospheric_pressure'] > 0.01) & (Exoplanet_df['atmospheric_pressure'] < 1100), "Score"] += 20
 
+#Drop NaN's and create a copy
+Exoplanet_df.dropna()
 filtered_df = Exoplanet_df.copy()
 
 Input_Selector = st.sidebar.selectbox('Select Input Option', ("Choose an option:", 'Slider Search', 'Number Input Search', 'Goldilocks Calculator'), placeholder = "Choose an option")
