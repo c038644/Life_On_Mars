@@ -154,12 +154,11 @@ elif Input_Selector == 'Goldilocks Calculator':
   
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
- st.write(int(Selected_Planet.iat[0,12])) 
  g1 = st.columns(1)
  
  fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
-        value = Selected_Planet.iat[0,2],
+        value = Selected_Planet.iat[0,12],
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Life Ranking", 'font': {'size': 24}},
         gauge = {
