@@ -131,6 +131,25 @@ elif Input_Selector == 'Goldilocks Calculator':
  Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
  st.write(Selected_Planet)
+ g1 = st.columns(1)
+ 
+ fig1 = go.Figure(go.Indicator(
+        mode = "gauge+number+delta",
+        value = Selected_Planet.iat[0,12],
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': "Life Ranking", 'font': {'size': 24}},
+        gauge = {
+            'axis': {'range': [0, 100], 'tickwidth': 1, 'tickcolor': "darkblue"},
+            'bar': {'color': "black"},
+            'bgcolor': "white",
+            'borderwidth': 2,
+            'bordercolor': "gray",
+            'steps': [
+                {'range': [0, 33], 'color': 'red'},
+                {'range': [34, 66], 'color': 'orange'},
+                {'range': [67, 100], 'color': 'green'}]}))
+
+ g1[0].plotly_chart(fig1, use_container_width=True)
  
  st.write('Does the planet have a solid surface?')
 
@@ -154,25 +173,7 @@ elif Input_Selector == 'Goldilocks Calculator':
   
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
- g1 = st.columns(1)
- 
- fig1 = go.Figure(go.Indicator(
-        mode = "gauge+number+delta",
-        value = Selected_Planet.iat[0,12],
-        domain = {'x': [0, 1], 'y': [0, 1]},
-        title = {'text': "Life Ranking", 'font': {'size': 24}},
-        gauge = {
-            'axis': {'range': [0, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
-            'bar': {'color': "black"},
-            'bgcolor': "white",
-            'borderwidth': 2,
-            'bordercolor': "gray",
-            'steps': [
-                {'range': [0, 33], 'color': 'red'},
-                {'range': [34, 66], 'color': 'orange'},
-                {'range': [67, 100], 'color': 'green'}]}))
 
- g1[0].plotly_chart(fig1, use_container_width=True)
   
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > input_min_radius) &
