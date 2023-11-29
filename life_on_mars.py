@@ -152,6 +152,22 @@ elif Input_Selector == 'Goldilocks Calculator':
   
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
+
+ fig1 = go.Figure(go.Indicator(
+        mode = "gauge+number+delta",
+        value = Selected_Planet.iat[0,13],
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': "Life Ranking", 'font': {'size': 24}},
+        gauge = {
+            'axis': {'range': [0, 100], 'tickwidth': 1, 'tickcolor': "darkblue"},
+            'bar': {'color': "black"},
+            'bgcolor': "white",
+            'borderwidth': 2,
+            'bordercolor': "gray",
+            'steps': [
+                {'range': [0, 33], 'color': 'red'},
+                {'range': [34, 66], 'color': 'orange'},
+                {'range': [67, 100], 'color': 'green'}]}))
   
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > input_min_radius) &
