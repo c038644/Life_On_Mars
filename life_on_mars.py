@@ -18,8 +18,8 @@ Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 
 #Exoplanet_df['Lum_Max'] = np.sqrt(abs(np.log10(Exoplanet_df['Star luminosity']))/0.53)
 #Exoplanet_df['Lum_Min'] = np.sqrt(abs(np.log10(Exoplanet_df['Star luminosity']))/1.1)
-Exoplanet_df['Lum_Max'] = np.sqrt((np.log10(abs(Exoplanet_df['Star luminosity'])))/0.53)
-Exoplanet_df['Lum_Min'] = np.sqrt((np.log10(abs(Exoplanet_df['Star luminosity'])))/1.1)
+Exoplanet_df['Lum_Max'] = np.sqrt(10**(exoplanets['Star luminosity'])/0.53)
+Exoplanet_df['Lum_Min'] = np.sqrt(10**(exoplanets['Star luminosity'])/1.1)
 filtered_df = Exoplanet_df.copy()
 
 #Input = pd.read_csv("./Input.csv")
