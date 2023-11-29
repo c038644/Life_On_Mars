@@ -163,7 +163,7 @@ elif Input_Selector == 'Goldilocks Calculator':
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Life Ranking", 'font': {'size': 24}},
         gauge = {
-            'axis': {'range': [0, 100], 'tickwidth': 1, 'tickcolor': "darkblue"},
+            'axis': {'range': [0, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
             'bar': {'color': "black"},
             'bgcolor': "white",
             'borderwidth': 2,
