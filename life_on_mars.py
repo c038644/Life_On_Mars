@@ -137,8 +137,8 @@ elif Input_Selector == 'Goldilocks Calculator':
   st.write('No') 
   
  st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
- st.write('Does the planets sun have a sutiable luminosity for the orbit of the planet?')
- if ((Selected_Planet['Orbital Radius'] > Selected_Planet['Lum_Min']) & (Selected_Planet['Orbital Radius'] < Selected_Planet['Lum_Min'])).all():
+ st.write('Does the planets sun have a suitable luminosity for the orbit of the planet?')
+ if ((Selected_Planet['Orbital Radius'] > Selected_Planet['Lum_Min']) & (Selected_Planet['Orbital Radius'] < Selected_Planet['Lum_Max'])).all():
   st.write('Yes !')
  else:
   st.write('No') 
