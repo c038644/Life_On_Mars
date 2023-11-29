@@ -172,7 +172,7 @@ elif Input_Selector == 'Goldilocks Calculator':
                 {'range': [34, 66], 'color': 'orange'},
                 {'range': [67, 100], 'color': 'green'}]}))
 
- g1.plotly_chart(fig1, use_container_width=True)
+ g1[0].plotly_chart(fig1, use_container_width=True)
   
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > input_min_radius) &
