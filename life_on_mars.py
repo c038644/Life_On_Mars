@@ -155,7 +155,7 @@ elif Input_Selector == 'Goldilocks Calculator':
 
  fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
-        value = Selected_Planet.iat[0,13],
+        value = Selected_Planet.iat[0,12],
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Life Ranking", 'font': {'size': 24}},
         gauge = {
