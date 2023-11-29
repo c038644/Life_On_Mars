@@ -60,7 +60,7 @@ if Input_Selector == 'Slider Search':
 
  st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
- g1 = st.columns((1, ))
+ g1, g2 = st.columns((1, 1))
 
  Feature_List = flitered_df.columns
  #Feature_List = pd.read_csv("./Feature_List.csv")
@@ -131,7 +131,7 @@ elif Input_Selector == 'Goldilocks Calculator':
  Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
  st.write(Selected_Planet)
- g1 = st.columns(1)
+ g1, g2 = st.columns((1, 1))
  
  fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
@@ -150,8 +150,9 @@ elif Input_Selector == 'Goldilocks Calculator':
                 {'range': [67, 100], 'color': 'green'}]}))
 
  g1[0].plotly_chart(fig1, use_container_width=True)
- 
- st.write('Does the planet have a solid surface?')
+
+ with g2:
+  st.write('Does the planet have a solid surface?')
 
  if ((Selected_Planet['Planet Mass [Earth Mass]'] > 0.5) & (Selected_Planet['Planet Mass [Earth Mass]'] < 40)).all():
   st.write('Yes !')
