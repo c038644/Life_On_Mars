@@ -130,6 +130,7 @@ elif Input_Selector == 'Goldilocks Calculator':
  Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
  st.write(Selected_Planet)
+ Selected_Planet.dtypes
 
  st.write('Does the planet have a solid surface?')
 
