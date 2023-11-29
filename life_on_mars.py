@@ -124,14 +124,14 @@ elif Input_Selector == 'Goldilocks Calculator':
  #Planet_Selection = Planet_Selection.drop(columns=['0'])
  #filtered_df.sort_values(by='Score', ascending=False)
  
- Planet_Selection = filtered_df.sort_values(by='Score', ascending=False)['Planet Name'].tolist()
+ #Planet_Selection = filtered_df.sort_values(by='Score', ascending=False)['Planet Name'].tolist()
+ Planet_Selection = filtered_df.sort_values(by='Score', ascending=False)['Planet Name']
 
  Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
  Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
 
  st.write(Selected_Planet)
- Selected_Planet.dtypes
-
+ 
  st.write('Does the planet have a solid surface?')
 
  if ((Selected_Planet['Planet Mass [Earth Mass]'] > 0.5) & (Selected_Planet['Planet Mass [Earth Mass]'] < 40)).all():
