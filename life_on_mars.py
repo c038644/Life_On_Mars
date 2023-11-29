@@ -153,7 +153,6 @@ elif Input_Selector == 'Goldilocks Calculator':
 
  with g2:
   st.write('Does the planet have a solid surface?')
-
   if ((Selected_Planet['Planet Mass [Earth Mass]'] > 0.5) & (Selected_Planet['Planet Mass [Earth Mass]'] < 40)).all():
    st.write('Yes !')
   else:
