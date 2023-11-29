@@ -20,6 +20,8 @@ Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 #Exoplanet_df['Lum_Min'] = np.sqrt(abs(np.log10(Exoplanet_df['Star luminosity']))/1.1)
 Exoplanet_df['Lum_Max'] = np.sqrt(10**(Exoplanet_df['Star luminosity'])/0.53)
 Exoplanet_df['Lum_Min'] = np.sqrt(10**(Exoplanet_df['Star luminosity'])/1.1)
+Exoplanet_df['gravitational_pressure'] = Exoplanet_df["Planet Mass [Earth Mass]"] / (Exoplanet_df['Planet Radius [Earth Radius]'] * Exoplanet_df['Planet Radius [Earth Radius]']) 
+Exoplanet_df['atmospheric_pressure'] = Exoplanet_df['gravitational_pressure'] * Exoplanet_df['gravitational_pressure']
 
 Exoplanet_df['Score'] = 0
 Exoplanet_df.loc[(Exoplanet_df["Equilibrium Temperature [K]"] > 258) & (Exoplanet_df["Equilibrium Temperature [K]"] < 395), "Score"] += 20
