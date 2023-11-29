@@ -153,7 +153,7 @@ elif Input_Selector == 'Goldilocks Calculator':
   
  st.write('Is it possible the planet has water?')
  st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
- st.write(Selected_Planet['Score']) 
+ st.write(Selected_Planet.iat[0,12]) 
  g1 = st.columns((1,))
  
  fig1 = go.Figure(go.Indicator(
