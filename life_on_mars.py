@@ -123,7 +123,7 @@ elif Input_Selector == 'Goldilocks Calculator':
  #Planet_Selection = pd.read_csv("./Planet_Names.csv")
  #Planet_Selection = Planet_Selection.drop(columns=['0'])
  filtered_df.sort_values(by='Score', ascending=False)
- Planet_Selection = filtered_df['Planet Name'] 
+ Planet_Selection = filtered_df['Planet Name'].tolist() 
 
  Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
  Selected_Planet = Exoplanet_df.loc[Exoplanet_df['Planet Name'] == Planet]
