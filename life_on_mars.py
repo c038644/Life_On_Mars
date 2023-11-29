@@ -20,6 +20,11 @@ Exoplanet_df = Exoplanet_df.drop(columns=['Unnamed: 0'])
 #Exoplanet_df['Lum_Min'] = np.sqrt(abs(np.log10(Exoplanet_df['Star luminosity']))/1.1)
 Exoplanet_df['Lum_Max'] = np.sqrt(10**(Exoplanet_df['Star luminosity'])/0.53)
 Exoplanet_df['Lum_Min'] = np.sqrt(10**(Exoplanet_df['Star luminosity'])/1.1)
+
+Exoplanet_df.loc[(Exoplanet_df["Equilibrium Temperature [K]"] > 258) & (Exoplanet_df["Equilibrium Temperature [K]"] < 395), "Score"] += 20
+Exoplanet_df.loc[(Exoplanet_df["Planet Mass [Earth Mass]"] > 0.5) & (Exoplanet_df["Planet Mass [Earth Mass]"] < 40), "Score"] += 20
+Exoplanet_df.loc[(Exoplanet_df['Orbital Radius'] > Exoplanet_df['Lum_Min']) & (Exoplanet_df['Orbital Radius'] < Exoplanet_df['Lum_Max']), "Score"] += 20
+
 filtered_df = Exoplanet_df.copy()
 
 #Input = pd.read_csv("./Input.csv")
@@ -104,7 +109,7 @@ elif Input_Selector == 'Number Input Search':
  g1 = st.columns((1,))
 
  #Feature_List = pd.read_csv("./Feature_List.csv")
- Feature_List = flitered_df.columns
+  Feature_List = flitered_df.columns
 
  Feature = st.sidebar.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 
@@ -116,6 +121,7 @@ elif Input_Selector == 'Goldilocks Calculator':
 
  #Planet_Selection = pd.read_csv("./Planet_Names.csv")
  #Planet_Selection = Planet_Selection.drop(columns=['0'])
+ filtered_df.sort_values(by='Score', ascending=False)
  Planet_Selection = filtered_df['Planet Name'] 
 
  Planet = st.selectbox('Select Planet', Planet_Selection, help = 'Filter report to show only one feature')
