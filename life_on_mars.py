@@ -60,7 +60,7 @@ if Input_Selector == 'Slider Search':
 
  st.sidebar.write('You have selected', flitered_df.shape[0], 'planets')
 
- g1, g2 = st.columns((1, 1))
+ g1 = st.columns((1,))
 
  Feature_List = flitered_df.columns
  #Feature_List = pd.read_csv("./Feature_List.csv")
