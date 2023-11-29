@@ -72,7 +72,7 @@ if Input_Selector == 'Slider Search':
 
  fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
- g1.plotly_chart(fig1, use_container_width=True)
+ g1[0].plotly_chart(fig1, use_container_width=True)
  
  #filtered_df = filtered_df.loc[
  #       (filtered_df['Planet Radius [Earth Radius]'] > planet_radius_options[0]) &
@@ -119,7 +119,7 @@ elif Input_Selector == 'Number Input Search':
 
  fig1 = px.scatter(flitered_df, x = 'Planet Name', y = Feature)
 
- g1.plotly_chart(fig1, use_container_width=True)
+ g1[0].plotly_chart(fig1, use_container_width=True)
 
 elif Input_Selector == 'Goldilocks Calculator':
 
