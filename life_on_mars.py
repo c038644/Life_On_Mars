@@ -27,6 +27,7 @@ Exoplanet_df['Score'] = 0
 Exoplanet_df.loc[(Exoplanet_df["Equilibrium Temperature [K]"] > 258) & (Exoplanet_df["Equilibrium Temperature [K]"] < 395), "Score"] += 20
 Exoplanet_df.loc[(Exoplanet_df["Planet Mass [Earth Mass]"] > 0.5) & (Exoplanet_df["Planet Mass [Earth Mass]"] < 40), "Score"] += 20
 Exoplanet_df.loc[(Exoplanet_df['Orbital Radius'] > Exoplanet_df['Lum_Min']) & (Exoplanet_df['Orbital Radius'] < Exoplanet_df['Lum_Max']), "Score"] += 20
+Exoplanet_df.loc[(Exoplanet_df['atmospheric_pressure'] > 0.01) & (Exoplanet_df['atmospheric_pressure'] < 1100), "Score"] += 20
 
 filtered_df = Exoplanet_df.copy()
 
@@ -137,7 +138,7 @@ elif Input_Selector == 'Goldilocks Calculator':
  
  fig1 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
-        value = Selected_Planet.iat[0,12],
+        value = Selected_Planet.iat[0,14],
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Life Ranking", 'font': {'size': 24}},
         gauge = {
