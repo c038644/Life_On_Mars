@@ -155,8 +155,8 @@ elif Input_Selector == 'Goldilocks Calculator':
   else:
    st.write('No')
  
-  st.write('Does the planet have a pressure between 0.01 and 1,100 atmospheres?')
-  if ((Selected_Planet['atmospheric_pressure'] > 0.01) & (Selected_Planet['atmospheric_pressure'] < 1100)).all():
+  st.write('Does the planet have a pressure between 0.5 and 2 atmospheres?')
+  if ((Selected_Planet['atmospheric_pressure'] > 0.5) & (Selected_Planet['atmospheric_pressure'] < 2)).all():
    st.write('Yes !')
    st.write('Is it possible the planet has carbon, oxygen and nitrogen?')
    st.write('Possibly. If they exist oxygen and nitrogen would remain in the planets atmosphere.')
