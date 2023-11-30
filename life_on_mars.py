@@ -6,19 +6,19 @@ import plotly.graph_objects as go
 import requests
 import csv
 
-url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,disc_year,pl_orbper,pl_orbsmax,pl_rade,pl_bmasse,pl_dens,pl_eqt,pl_trandur,st_lum+from+pscomppars&format=csv"
+#url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,disc_year,pl_orbper,pl_orbsmax,pl_rade,pl_bmasse,pl_dens,pl_eqt,pl_trandur,st_lum+from+pscomppars&format=csv"
 
 # Send a GET request to the URL
-response = requests.get(url)
+#response = requests.get(url)
 
 # Check if the request was successful (status code 200)
-if response.status_code == 200:
+#if response.status_code == 200:
     # Save the CSV data to a file
-    with open('./exoplanets.csv', 'w') as csv_file:
-        csv_file.write(response.text)
-else:
+#    with open('./exoplanets.csv', 'w') as csv_file:
+#        csv_file.write(response.text)
+#else:
     # Print an error message if the request was not successful
-    print(f"Error: {response.status_code}")
+#    print(f"Error: {response.status_code}")
   
 st.set_page_config(page_title='Life On Mars Dashboard',  layout='wide', page_icon=':Dashboard:')
 
