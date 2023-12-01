@@ -23,9 +23,9 @@ Exoplanet_df['Score'] = 0
 
 #Calculate Goldilocks Score for each Planet
 Exoplanet_df.loc[(Exoplanet_df["Equilibrium Temperature [K]"] > 258) & (Exoplanet_df["Equilibrium Temperature [K]"] < 395), "Score"] += 20
-Exoplanet_df.loc[(Exoplanet_df["Planet Mass [Earth Mass]"] > 0.5) & (Exoplanet_df["Planet Mass [Earth Mass]"] < 40), "Score"] += 20
+Exoplanet_df.loc[(Exoplanet_df["Planet Mass [Earth Mass]"] > 0.5) & (Exoplanet_df["Planet Mass [Earth Mass]"] < 7), "Score"] += 20
 Exoplanet_df.loc[(Exoplanet_df['Orbital Radius'] > Exoplanet_df['Lum_Min']) & (Exoplanet_df['Orbital Radius'] < Exoplanet_df['Lum_Max']), "Score"] += 20
-Exoplanet_df.loc[(Exoplanet_df['atmospheric_pressure'] > 0.01) & (Exoplanet_df['atmospheric_pressure'] < 1100), "Score"] += 20
+Exoplanet_df.loc[(Exoplanet_df['atmospheric_pressure'] > 0.5) & (Exoplanet_df['atmospheric_pressure'] < 2), "Score"] += 20
 
 #Drop NaN's and create a copy
 Exoplanet_df.dropna()
